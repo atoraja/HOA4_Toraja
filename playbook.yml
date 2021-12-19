@@ -1,0 +1,22 @@
+---
+- name: Pre-Installation
+  hosts: all
+  gather_facts: no
+  pre_tasks:
+    - name: Update Repository Index of Ubuntu and CentOS
+      tags: always
+      package:
+        update_cache: yes
+      changed_when: false
+
+- name: ELK_Installation_Ubuntu
+  hosts: server1
+  gather_facts: no
+  roles:
+      - ELK_installation_ubuntu
+
+- name: ELK_Installation_CentOS
+  hosts: centos
+  gather_facts: no
+  roles:
+      - ELK_installation_centos     

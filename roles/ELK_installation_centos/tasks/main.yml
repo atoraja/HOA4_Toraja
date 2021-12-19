@@ -1,0 +1,7 @@
+---
+# tasks file for roles/ELK_installation_centos
+- name: Display User
+  shell: whoami
+  register: output_command
+
+- debug: var=output_command
